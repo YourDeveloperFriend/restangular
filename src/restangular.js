@@ -532,8 +532,11 @@ module.provider('Restangular', function() {
                           }
                       }
                     }
-                    
-                    return acum + "/" + elemUrl;
+                    if(null !== elemUrl && !_.isUndefined(elemUrl)) {
+                    	return acum + "/" + elemUrl;
+                    } else {
+                    	return acum;
+                    }
                     
                 }, this.config.baseUrl);
             };
